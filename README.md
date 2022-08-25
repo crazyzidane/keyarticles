@@ -51,7 +51,8 @@ important articles for personal, especially on computer science.
         * github, https://github.com/cornell-zhang/dnn-quant-ocs
 * nvidia, INTEGER QUANTIZATION FOR DEEP LEARNING INFERENCE: PRINCIPLES AND EMPIRICAL EVALUATION
     * https://arxiv.org/pdf/2004.09602.pdf, show some interesting data
-
+* DoReFa-Net: Training Low Bitwidth Convolutional Neural Networks with Low Bitwidth Gradients
+    * https://arxiv.org/abs/1606.06160 
 
 
 
