@@ -56,9 +56,11 @@ important articles for personal, especially on computer science.
 
 
 
+## 4. LLM
+* Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems
+   * https://arxiv.org/abs/2312.15234
 
-
-## 4. others
+## 5. others
 * Latency Numbers Every Programmer Should Know
     * https://colin-scott.github.io/personal_website/research/interactive_latency.html
     * github ， https://github.com/colin-scott/interactive_latencies
