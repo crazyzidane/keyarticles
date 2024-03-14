@@ -59,6 +59,8 @@ important articles for personal, especially on computer science.
 ## 4. LLM
 * Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems
    * https://arxiv.org/abs/2312.15234
+* stable diffusion 3, Scaling Rectified Flow Transformers for High-Resolution Image Synthesis
+   * https://stabilityai-public-packages.s3.us-west-2.amazonaws.com/Stable+Diffusion+3+Paper.pdf
 
 ## 5. others
 * Latency Numbers Every Programmer Should Know
