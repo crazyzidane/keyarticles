@@ -61,6 +61,8 @@ important articles for personal, especially on computer science.
    * https://arxiv.org/abs/2312.15234
 * stable diffusion 3, Scaling Rectified Flow Transformers for High-Resolution Image Synthesis
    * https://stabilityai-public-packages.s3.us-west-2.amazonaws.com/Stable+Diffusion+3+Paper.pdf
+* Efficient Memory Management for Large Language Model Serving with PagedAttention
+   * https://arxiv.org/abs/2309.06180
 
 ## 5. others
 * Latency Numbers Every Programmer Should Know
