@@ -61,8 +61,20 @@ important articles for personal, especially on computer science.
    * https://arxiv.org/abs/2312.15234
 * stable diffusion 3, Scaling Rectified Flow Transformers for High-Resolution Image Synthesis
    * https://stabilityai-public-packages.s3.us-west-2.amazonaws.com/Stable+Diffusion+3+Paper.pdf
-* Efficient Memory Management for Large Language Model Serving with PagedAttention
-   * https://arxiv.org/abs/2309.06180
+* deploy:
+   * source
+      * vllm: https://github.com/vllm-project/vllm
+      * lightllm: https://github.com/ModelTC/lightllm
+* kv cache
+   * paged attention
+      * paged attention: both vllm and lightllm(token attention) used.
+      * Efficient Memory Management for Large Language Model Serving with PagedAttention
+         * https://arxiv.org/abs/2309.06180
+      * https://blog.vllm.ai/2023/06/20/vllm.html
+   * qcom-qualla: NSPKVManager
+   * llama, ggml_cpy, just for memory copy and concat
+   * MQG, GQA, need to change model struct.
+      * https://zhuanlan.zhihu.com/p/655325832
 
 ## 5. others
 * Latency Numbers Every Programmer Should Know
