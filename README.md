@@ -65,6 +65,7 @@ important articles for personal, especially on computer science.
    * source
       * vllm: https://github.com/vllm-project/vllm
       * lightllm: https://github.com/ModelTC/lightllm
+      * mlc-llm: https://github.com/mlc-ai/mlc-llm
 * kv cache
    * paged attention
       * paged attention: both vllm and lightllm(token attention) used.
@@ -74,7 +75,9 @@ important articles for personal, especially on computer science.
    * qcom-qualla: NSPKVManager
    * llama, ggml_cpy, just for memory copy and concat
    * MQG, GQA, need to change model struct.
+      * https://arxiv.org/pdf/2305.13245   GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints
       * https://zhuanlan.zhihu.com/p/655325832
+      * https://zhuanlan.zhihu.com/p/659238103
 
 ## 5. others
 * Latency Numbers Every Programmer Should Know
