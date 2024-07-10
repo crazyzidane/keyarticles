@@ -78,6 +78,12 @@ important articles for personal, especially on computer science.
       * https://arxiv.org/pdf/2305.13245   GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints
       * https://zhuanlan.zhihu.com/p/655325832
       * https://zhuanlan.zhihu.com/p/659238103
+* quantize
+   * aimet, AIMET is a library that provides advanced quantization and compression techniques for trained neural network models.
+      * https://github.com/quic/aimet
+   * qserve mit, QServe: W4A8KV4 Quantization and System Co-design for Efficient LLM Serving
+      * https://arxiv.org/abs/2405.04532
+      * https://github.com/mit-han-lab/qserve
 
 ## 5. others
 * Latency Numbers Every Programmer Should Know
