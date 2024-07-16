@@ -61,6 +61,9 @@ important articles for personal, especially on computer science.
    * https://arxiv.org/abs/2312.15234
 * stable diffusion 3, Scaling Rectified Flow Transformers for High-Resolution Image Synthesis
    * https://stabilityai-public-packages.s3.us-west-2.amazonaws.com/Stable+Diffusion+3+Paper.pdf
+* BiTA: Bi-Directional Tuning for Lossless Acceleration in Large Language Models
+   * https://arxiv.org/html/2401.12522v2
+   * https://github.com/linfeng93/BiTA
 * deploy:
    * source
       * vllm: https://github.com/vllm-project/vllm
