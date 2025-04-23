@@ -87,6 +87,9 @@ important articles for personal, especially on computer science.
    * qserve mit, QServe: W4A8KV4 Quantization and System Co-design for Efficient LLM Serving
       * https://arxiv.org/abs/2405.04532
       * https://github.com/mit-han-lab/qserve
+* HPC
+   * GEMM
+      * https://github.com/tpn/pdfs/blob/master/Anatomy%20of%20High-Performance%20Matrix%20Multiplication%20-%202008%20(gotoPaper).pdf
 
 ## 5. others
 * Latency Numbers Every Programmer Should Know
