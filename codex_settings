@@ -1,0 +1,106 @@
+# ============================================================
+# Codex CLI 配置示范（仅演示，不是真实 ~/.codex/config.toml）
+# 对应 Claude Code 的 settings.json：
+#   env / 模型路由      -> model + [model_providers.*]
+#   enabledPlugins      -> [plugins."<plugin>@<marketplace>"]
+#   extraKnownMarketplaces -> [marketplaces.<name>]
+#   skipDangerousModePermissionPrompt
+#                       -> approval_policy + sandbox_mode
+# 版本差异较大，实际使用前请核对 `codex --version` 对应文档。
+# ============================================================
+
+# ---------- 1. 默认模型与 provider ----------
+model = "deepseek-chat"
+model_provider = "deepseek"
+
+# ---------- 2. 权限：等价于 skipDangerousModePermissionPrompt = true ----------
+# 完全跳过审批 + 关闭沙箱，风险最高，仅限可信环境。
+# 注意：所有顶层键必须写在第一个 [table] 之前，否则会被归入该表。
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+
+[model_providers.deepseek]
+name = "DeepSeek"
+base_url = "https://api.deepseek.com/v1"
+# 用环境变量保存密钥，避免像 Claude 配置那样把 token 写进文件
+env_key = "DEEPSEEK_API_KEY"
+# 注意：Codex 0.159.x 只接受 wire_api = "responses"（默认值）。
+# DeepSeek 官方接口是 Chat Completions，直接接会报 invalid data，
+# 需要网关/代理把它转换成 Responses API，或改用支持 Responses 的 provider。
+
+# 更稳妥的替代方案：默认安全，需要时显式切换
+# codex --profile safe
+[profiles.safe]
+model = "deepseek-chat"
+model_provider = "deepseek"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+# ---------- 3. Marketplace ----------
+# Claude 的 extraKnownMarketplaces -> Codex 的 [marketplaces.<name>]
+# 注意：Codex 插件市场要求仓库里有 .agents/plugins/marketplace.json，
+#       Claude 的 .claude-plugin/marketplace.json 不能直接复用。
+
+[marketplaces.caveman]
+source = "https://github.com/JuliusBrussee/caveman.git"
+source_type = "git"
+sparse_paths = [".agents"]
+
+[marketplaces.planning-with-files]
+source = "https://github.com/OthmanAdi/planning-with-files.git"
+source_type = "git"
+sparse_paths = [".agents"]
+
+# Codex 的官方市场通常已内置（openai-curated）。
+# 如需显式声明，把下面地址换成你环境中实际的 marketplace 仓库：
+# [marketplaces.official]
+# source = "https://github.com/<org>/<codex-plugins-repo>.git"
+# source_type = "git"
+# ref = "main"
+
+# ---------- 4. 插件启用 ----------
+# Claude 的 enabledPlugins -> Codex 的 [plugins."<plugin>@<marketplace>"]
+# 注意：名称里的 @ 必须加引号。
+
+[plugins."caveman@caveman"]
+enabled = true
+
+[plugins."planning-with-files@planning-with-files"]
+enabled = true
+
+# 以下四项来自官方市场，具体 marketplace 名以你的 Codex 安装为准
+[plugins."superpowers@official"]
+enabled = true
+
+[plugins."code-review@official"]
+enabled = true
+
+[plugins."code-simplifier@official"]
+enabled = true
+
+[plugins."ralph-loop@official"]
+enabled = true
+
+# Codex 自带内置 $skill-creator，通常无需再装插件；
+# 若确实要装，取消下面注释并把 marketplace 名改成实际值。
+# [plugins."skill-creator@official"]
+# enabled = true
+
+# ---------- 5. 插件内 MCP server 的细粒度设置（可选） ----------
+# 如果插件自带 MCP server，可在不修改插件的前提下覆盖：
+#
+# [plugins."github@official".mcp_servers.github]
+# enabled = true
+# default_tools_approval_mode = "prompt"
+# disabled_tools = ["merge_pull_request"]
+
+# ---------- 6. 纯 skill 形式（无插件） ----------
+# 只用 skill、不用插件时，安装到 ~/.agents/skills/<name>/ 即可自动发现，
+# 不需要在 config.toml 中声明。例：
+#   npx skills add JuliusBrussee/caveman
+#   npx skills add OthmanAdi/planning-with-files
+#
+# 如需禁用某个 skill（按你的 Codex 版本支持情况）：
+# [[skills.config]]
+# path = "~/.agents/skills/caveman"
+# enabled = false
